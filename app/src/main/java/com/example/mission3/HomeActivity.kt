@@ -12,9 +12,7 @@ import android.graphics.Paint
 import android.util.Log
 import android.view.animation.AnimationUtils
 
-class HomeActivity : Activity()
-
-class HomeActivityActivity : AppCompatActivity() {
+class HomeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
