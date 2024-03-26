@@ -9,7 +9,7 @@ import android.widget.TextView
 import android.widget.Toast
 import com.example.mission3.R.id.button1
 import com.example.mission3.R.id.button2
-import com.google.android.ads.mediationtestsuite.activities.HomeActivity
+
 
 class SignUpActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,21 +30,14 @@ class SignUpActivity : AppCompatActivity() {
 
         val button: Button = findViewById(R.id.button)
 
-        val name = editText1.text.toString()
-        val id = editText2.text.toString()
-        val pw = editText3.text.toString()
+        button.setOnClickListener {
+            val name = editText1.text.toString()
+            val id = editText2.text.toString()
+            val pw = editText3.text.toString()
 
-        if (name.isEmpty() || id.isEmpty() || pw.isEmpty()) {
-            Toast.makeText(this, "입력되지 않은 정보가 있습니다", Toast.LENGTH_SHORT).show()
-
-        } else {
-            // 회원가입 버튼 활성화
-            button.isEnabled = true
-
-            // 버튼 클릭 시 회원가입 로직 실행
-            button.setOnClickListener {
-                // 회원가입 로직
-                // 회원가입이 성공적으로 완료되면 finish()를 호출하여 현재 액티비티를 종료
+            if (name.isEmpty() || id.isEmpty() || pw.isEmpty()) {
+                Toast.makeText(this, "입력되지 않은 정보가 있습니다", Toast.LENGTH_SHORT).show()
+            } else {
                 finish()
             }
         }
