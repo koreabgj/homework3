@@ -25,6 +25,12 @@ class SignInActivity : AppCompatActivity() {
         val textView2: TextView = findViewById(R.id.Text2)
         val editText2: EditText = findViewById(R.id.editText2)
 
+        val id = intent.getStringExtra("id")
+        val pw = intent.getStringExtra("pw")
+
+        editText1.setText(id)
+        editText2.setText(pw)
+
         val button1: Button = findViewById<Button>(R.id.button1)
         val button2: Button = findViewById<Button>(R.id.button2)
 

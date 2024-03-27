@@ -29,6 +29,8 @@ class HomeActivity : AppCompatActivity() {
         // 랜덤으로 선택한 이미지를 이미지뷰에 설정
         val imageArray = arrayOf(
             R.drawable.koreabgj,
+            R.drawable.vip,
+            R.drawable.streamer,
             R.drawable.dice_1,
             R.drawable.dice_3,
         )

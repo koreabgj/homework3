@@ -37,7 +37,10 @@ class SignUpActivity : AppCompatActivity() {
             if (name.isEmpty() || id.isEmpty() || pw.isEmpty()) {
                 Toast.makeText(this, "입력되지 않은 정보가 있습니다", Toast.LENGTH_SHORT).show()
             } else {
-                finish()
+                val intent = Intent(this, SignInActivity::class.java)
+                intent.putExtra("id", id)
+                intent.putExtra("pw", pw)
+                startActivity(intent)
             }
         }
     }
