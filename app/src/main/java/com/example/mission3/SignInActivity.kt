@@ -11,7 +11,6 @@ import android.widget.Toast
 import com.example.mission3.R.id.button1
 import com.example.mission3.R.id.button2
 
-
 class SignInActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
