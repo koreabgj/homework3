@@ -14,6 +14,7 @@ import android.view.animation.AnimationUtils
 
 class HomeActivity : AppCompatActivity() {
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
@@ -37,26 +38,26 @@ class HomeActivity : AppCompatActivity() {
         val randomImage = imageArray.random()
         image.setImageResource(randomImage)
 
-        val text1: TextView = findViewById(R.id.name)
+        val tvName: TextView = findViewById(R.id.name)
 
-        val text2: TextView = findViewById(R.id.wording)
+        val tvWording: TextView = findViewById(R.id.wording)
 
-        val text3: TextView = findViewById(R.id.true_false)
+        val tvTrueFalse: TextView = findViewById(R.id.true_false)
         // 텍스트 애니메이션 효과
         val animation = AnimationUtils.loadAnimation(this, R.anim.text_effect)
-        text3.startAnimation(animation)
+        tvTrueFalse.startAnimation(animation)
 
-        val text4: TextView = findViewById(R.id.mbti)
+        val tvMbti: TextView = findViewById(R.id.mbti)
 
-        val button1: Button = findViewById(R.id.button1)
+        val btnBlog: Button = findViewById(R.id.button_blog)
         // 1주차 미니프로젝트에서 사용했던 기능
-        button1.paintFlags = button1.paintFlags or Paint.UNDERLINE_TEXT_FLAG
-        button1.setOnClickListener {
+        btnBlog.paintFlags = btnBlog.paintFlags or Paint.UNDERLINE_TEXT_FLAG
+        btnBlog.setOnClickListener {
             startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://lionbae.tistory.com")))
         }
 
-        val button2: Button = findViewById(R.id.button2)
-        button2.setOnClickListener {
+        val btnMain: Button = findViewById(R.id.button_main)
+        btnMain.setOnClickListener {
             finish()
         }
     }

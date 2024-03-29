@@ -16,25 +16,22 @@ class SignUpActivity : AppCompatActivity() {
         setContentView(R.layout.activity_sign_up)
 
         val imageView: ImageView = findViewById(R.id.sparta)
-        imageView.setImageResource(R.drawable.sparta)
-
         val textView1: TextView = findViewById(R.id.Text1)
         val editText1: EditText = findViewById(R.id.editText1)
-
         val textView2: TextView = findViewById(R.id.Text2)
         val editText2: EditText = findViewById(R.id.editText2)
-
         val textView3: TextView = findViewById(R.id.Text3)
         val editText3: EditText = findViewById(R.id.editText3)
-
         val button: Button = findViewById(R.id.button)
+
+        imageView.setImageResource(R.drawable.sparta)
 
         button.setOnClickListener {
             val name = editText1.text.toString()
             val id = editText2.text.toString()
             val pw = editText3.text.toString()
 
-            if (name.isEmpty() || id.isEmpty() || pw.isEmpty()) {
+            if (name.isBlank() || id.isBlank() || pw.isBlank()) {
                 Toast.makeText(this, "입력되지 않은 정보가 있습니다", Toast.LENGTH_SHORT).show()
             } else {
                 val intent = Intent(this, SignInActivity::class.java)
