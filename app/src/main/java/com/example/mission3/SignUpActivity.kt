@@ -33,11 +33,13 @@ class SignUpActivity : AppCompatActivity() {
 
             if (name.isBlank() || id.isBlank() || pw.isBlank()) {
                 Toast.makeText(this, "입력되지 않은 정보가 있습니다", Toast.LENGTH_SHORT).show()
+
             } else {
-                val intent = Intent(this, SignInActivity::class.java)
+                Toast.makeText(this, "회원가입이 완료되었습니다", Toast.LENGTH_SHORT).show()
+
                 intent.putExtra("id", id)
                 intent.putExtra("pw", pw)
-                startActivity(intent)
+                finish()
             }
         }
     }

@@ -8,10 +8,15 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import com.example.mission3.R.id.button1
 import com.example.mission3.R.id.button2
 
 class SignInActivity : AppCompatActivity() {
+
+    private lateinit var resultLauncher: ActivityResultLauncher<Intent>
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_in)
@@ -25,10 +30,16 @@ class SignInActivity : AppCompatActivity() {
         val button2: Button = findViewById<Button>(R.id.button2)
 
         imageView.setImageResource(R.drawable.sparta)
-        val id = intent.getStringExtra("id")
-        val pw = intent.getStringExtra("pw")
-        editText1.setText(id)
-        editText2.setText(pw)
+
+        resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult())
+        { result ->
+            if (result.resultCode == RESULT_OK) {
+                val id = result.data?.getStringExtra("id") ?: ""
+                val pw = result.data?.getStringExtra("pw") ?: ""
+                editText1.setText(id)
+                editText2.setText(pw)
+            }
+        }
 
         button1.setOnClickListener {
             val id1 = editText1.text.toString()
@@ -41,8 +52,8 @@ class SignInActivity : AppCompatActivity() {
                 button1.isEnabled = true
 
                 val intent = Intent(this, HomeActivity::class.java)
-                intent.putExtra("id", id)
-                intent.putExtra("pw", pw)
+                intent.putExtra("id", id1)
+                intent.putExtra("pw", pw1)
                 startActivity(intent)
 
                 Toast.makeText(this, "로그인 성공", Toast.LENGTH_SHORT).show()
